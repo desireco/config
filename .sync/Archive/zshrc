@@ -1,0 +1,23 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
+COMPLETION_WAITING_DOTS="true"
+plugins=(git osx ruby)
+source /Users/zeljko/Dropbox/Apps/aliases
+ZSH_THEME="macovsky-ruby"
+source $ZSH/oh-my-zsh.sh
+unsetopt correct
+
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$PATH
+export NODE_PATH=/usr/local/lib/node_modules
+#export CC=gcc-4.2
+#export CC=/usr/bin/gcc
+alias web='cd /Library/WebServer/Documents'
+
+export RBXOPT=-X19
+export EDITOR='lime -w'
+
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

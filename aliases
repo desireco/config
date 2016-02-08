@@ -1,0 +1,77 @@
+alias me=whoami
+alias l='ls -la'
+alias history='fc -l 1'
+
+# apps
+alias reload="source ~/.zshrc"
+alias be="bundle exec"
+alias cuke="bundle exec cucumber"
+alias rs="bundle exec rspec"
+alias edit="lime -w "
+
+# apps
+alias e='open -a /Applications/Emacs.app $1'
+alias mm="middleman "
+alias serve="python -m SimpleHTTPServer 8000"
+
+# docker apps
+alias dm="docker-machine"
+alias dc="docker-compose"
+
+# git commands
+alias s="git status -s"
+alias c="git commit -m"
+alias gd="git diff"
+alias add="git add "
+alias log="git log --oneline"
+alias reset='git reset HEAD --hard'
+alias push="git push origin master"
+alias pull="git pull origin master"
+alias pick="git cherry-pick "
+alias smux="sh ~/config/tat.sh"
+alias nw="~/work/nwjs/nwjs.app/Contents/MacOS/nwjs"
+alias rails-composer="rails new . -m https://raw.github.com/RailsApps/rails-composer/master/composer.rb"
+alias vpn_base='sudo openconnect --user=zdakic --no-cert-check'
+alias vpn='vpn_base vpn.ncsasports.org'
+alias vpna='vpn_base vpna.ncsasports.org'
+alias thought="cd /Volumes/extra_air/sync/documents/thoughts&&tmux attach -t organizacija"
+alias refresh="brew update; brew upgrade; brew cleanup -s"
+
+#fixes
+unsetopt correctall
+
+# ZSH config
+ZSH_THEME="robbyrussell"
+ZSH_THEME="crunch"
+ZSH_THEME="af-magic"
+ZSH_THEME="robbyrussell"
+ZSH_THEME="sonicradish"
+ZSH_THEME="macovsky-ruby"
+
+# JUMPEROO
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+
+function j { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+
+# STASHING
+
+savedir () { 
+  zip -r -X $1.zip $1
+  mv -f $1.zip ~/extra/stash/
+  printf "Moving: $1 to stash.\n"
+}
